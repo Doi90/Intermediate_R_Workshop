@@ -13,7 +13,7 @@ github-repo: Doi90/Intermediate_R_Workshop
 
 # Preamble
 
-This is the course notes for an *Intermediate R Workshop* run by David Wilkinson. 
+This is the course notes for an *Intermediate R Workshop* run by David Wilkinson. This workshop will cover aspects of control flow life if statements and for loops, as well as writing custom functions.
 
 This material has been adapted with permission from Research Platforms Services's own [*Introductory R Workshop*](https://nikkirubinstein.gitbooks.io/resguides-introductory-r-workshop/content/) course material.
 
