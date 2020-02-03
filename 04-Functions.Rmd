@@ -1,0 +1,199 @@
+# Functions
+
+```{r eval = TRUE, echo = FALSE}
+titanic <- read.csv("https://goo.gl/4Gqsnz")
+```
+
+## What is a function?
+
+Functions let us repeat several operations with a single command. This is useful when we want to apply the same process exactly to different inputs, as we only need to define the process (i.e. write the code) once rather than for each input. In fact, almost everything we've already covered today is a function.
+
+Functions provide:
+
+*  A name we can remember and invoke it by
+*  A relief from the need to remember individual operations
+*  A defined set of expetected inputs and outputs
+*  Rich connections to a larger programming environment
+
+## Function structure
+
+All functions in R follow a set structure. They require a `name`, a list of inputs called an `arglist`, and the desired processes defined in the `body`.
+
+```{r eval = FALSE}
+name <- function(arglist){
+  
+  body
+  
+}
+```
+
+We can see how existing functions in R are defined by typing the function name in the console without brackets, or by highlighting the function name and pressing `F2`. Here is the definition of the `upper.tri()` function:
+
+```{r eval = TRUE}
+upper.tri
+```
+
+## Define our own function
+
+Now lets define our own function. There is already a function called `sum()` in R, but addding two numbers together is a simple process and serves as a useful example. Here we define a function called `mySum()` that will return the sum of two input values `a` and `b`.
+
+```{r eval=FALSE}
+mySum <- function(a, b){
+  
+  value <- a + b
+  
+  return(value)
+
+}
+```
+
+Functions can be as simple or complex as required.
+
+### Challenge 1: Write a function
+
+Converting temperature values between different units of measure is possible with the use of formulas. Rather than having to apply the formula each time we want to make the conversion, defining it as a function would make things much easier.
+
+Let's open a new R script file and call it `functions_lesson.R`. Now we can define a function for converting temperatures in fahrenheit to kelvin:
+
+```{r eval = TRUE}
+fahr_to_kelvin <- function(temp){
+  
+  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
+  
+  return(kelvin)
+  
+}
+```
+
+Now lets test it:
+
+```{r eval = TRUE}
+fahr_to_kelvin(32)
+```
+
+```{}
+###################
+### CHALLENGE 1 ###
+###################
+
+Write your own function to convert temperatures from kelvin to celsius.
+
+Hint: to convert from kelvin to celsius subtract 273.15
+```
+
+## Combining functions
+
+The real power of functions comes from the ability to mix, match, and combine them into ever larger chunks to get the effect we want. In fact, the vast majority of functions in `R` make use of nested functions. If we look at the `upper.tri()` function again, we can see that it uses a combination of `as.matrix()`, `row()`, and `col()`.
+
+```{r eval = TRUE}
+upper.tri
+```
+
+### Challenge 2: Write a nested function
+
+```{}
+###################
+### CHALLENGE 2 ###
+###################
+
+Using the two functions we've defined to convert fahrenheit to kelvin, and kelvin to celsius, define a function that converts fahrenheit to celsius.
+```
+
+## Applying functions to datasets
+
+Here we define a function that calculates the average age in a dataset (in our case, the titanic dataset).
+
+```{r eval = TRUE}
+calcAgeAverage <- function(dat){
+  
+  ageAverage <- mean(dat$Age, 
+                     na.rm = TRUE)
+  
+  return(ageAverage)
+
+}
+```
+
+Now to test it:
+
+```{r eval = TRUE}
+calcAgeAverage(titanic)
+```
+
+Now we can add an additional argument to the function so that we can find the average age by gender:
+
+```{r eval = TRUE}
+calcAgeAverage <- function(dat, 
+                           sex = "female"){
+  
+  ageAverage <- mean(dat[dat$Sex == sex, ]$Age, 
+                     na.rm = TRUE)
+  
+  return(ageAverage)
+  
+}
+```
+
+And test it:
+
+```{r eval=TRUE}
+calcAgeAverage(titanic, 
+               sex = "female")
+
+calcAgeAverage(titanic, 
+               sex = "male")
+
+calcAgeAverage(titanic)
+```
+
+```{}
+###################
+### CHALLENGE 3 ###
+###################
+
+Define the function to calculate the average age for specific classes of a single sex. Hint: Look up the function %in%, which will allow you to subset by multiple classes.
+
+```
+
+## Challenge Answers
+
+### Challenge 1
+
+```{r eval = TRUE}
+kelvin_to_celsius <- function(temp){
+  
+  celsius <- temp - 273.15
+  
+  return(celsius)
+
+}
+```
+
+### Challenge 2
+
+```{r eval = TRUE}
+fahr_to_celsius <- function(temp){
+  
+  kelvin <- fahr_to_kelvin(temp)
+  
+  celsius <- kelvin_to_celsius(kelvin)
+  
+  return(celsius)
+  
+}
+```
+
+### Challenge 3
+
+```{r eval=TRUE}
+calcAgeAverage <- function(dat, 
+                           sex, 
+                           class){
+  
+   ageAverage <- mean(dat[dat$Sex == sex & dat$Pclass %in% class, ]$Age, 
+                      na.rm = TRUE)
+   
+   return(ageAverage)
+   
+}
+```
