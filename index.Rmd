@@ -1,0 +1,24 @@
+---
+title: "Intermediate R Workshop"
+author: "David Wilkinson"
+date: "`r Sys.Date()`"
+output: bookdown::gitbook
+css: lodestar.css
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: Doi90/Intermediate_R_Workshop
+---
+
+# Preamble
+
+This is the course notes for an *Intermediate R Workshop* run by David Wilkinson. 
+
+This material has been adapted with permission from Research Platforms Services's own [*Introductory R Workshop*](https://nikkirubinstein.gitbooks.io/resguides-introductory-r-workshop/content/) course material.
+
+# Technical Requirements
+
+All attendees will be required to **bring their own laptop and charger**. Tablets and/or Chromebooks (or similar) are not recommended. It can have a Windows, Mac, or Linux operating system, but you must have administrative privileges.
+
+Attendees are also asked to install both [**R**](https://www.r-project.org/) and [**RStudio**](https://www.rstudio.com/) in advance of the workshop. Both **R** and **RStudio** are updated regularly with both new features and bug fixes, so we require attendees to have **R** v3.6 or later, and **RStudio** v1.2 or later.
