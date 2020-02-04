@@ -1,0 +1,95 @@
+# Loops
+
+The second aspect of control flow is being able to repeat the same set of operations for a series of inputs. This is achieved by using loops to iteratively repeat your code until some condition is met.
+
+There are two types of loops in `R`: `for` loops and `while` loops. The most common is `for` loops where you repeat your code *for* each element in a series of inputs. `while` loops will repeat over the same set of code *while* a condition is met.
+
+## `for` loops
+
+The basic syntax of a for loop is this:
+
+```{}
+for(iterator in some_things){
+
+  do this
+  
+}
+```
+
+A basic example:
+
+```{r}
+for(i in 1:10){
+  
+  print(i)
+  
+}
+```
+
+```{}
+###################
+### CHALLENGE 1 ###
+###################
+
+Basic for loop challenge
+```
+
+### Nested `for` loops
+
+For situations where you need to loop over the different combinations of multiple iterators you can nest `for` loops within each other. For example:
+
+```{r}
+for(i in 1:5){
+  
+  for(j in c("a", "b", "c", "d", "e")){
+    
+    print(paste(i, j))
+  }
+}
+```
+
+```{}
+###################
+### CHALLENGE 2 ###
+###################
+
+Nested for loop challenge
+```
+
+Something about growing output?
+
+## `while` loops
+
+`while` loops have a more niche application, but are really useful for when you don't know how long it will take you to get to the end. A great application example is population viability simulations where you keep progressing through time until the population dies out.
+
+The basic syntax looks life this:
+
+```{}
+while(condition is true){
+
+  do this
+  
+}
+```
+
+For example:
+
+```{r}
+x <- 10
+
+while(x > 0){
+  
+  x <- x - 1
+  
+  print(x)
+  
+}
+```
+
+```{}
+###################
+### CHALLENGE 3 ###
+###################
+
+Use a while loop to simulate a population decline. Start with a population of 100 and then use the sample() function to have it decline between 1-5 individuals per time step.
+```
