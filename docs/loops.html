@@ -197,11 +197,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
 }</code></pre>
 <p>A basic example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
-<a class="sourceLine" id="cb20-2" title="2">  </a>
-<a class="sourceLine" id="cb20-3" title="3">  <span class="kw">print</span>(i)</a>
-<a class="sourceLine" id="cb20-4" title="4">  </a>
-<a class="sourceLine" id="cb20-5" title="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb21-2" title="2">  </a>
+<a class="sourceLine" id="cb21-3" title="3">  <span class="kw">print</span>(i)</a>
+<a class="sourceLine" id="cb21-4" title="4">  </a>
+<a class="sourceLine" id="cb21-5" title="5">}</a></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3
@@ -220,13 +220,13 @@ For each of the passenger classes in the titanic dataset calculate the mean surv
 <div id="nested-for-loops" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Nested <code>for</code> loops</h3>
 <p>For situations where you need to loop over the different combinations of multiple iterators you can nest <code>for</code> loops within each other. For example:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</a>
-<a class="sourceLine" id="cb23-2" title="2">  </a>
-<a class="sourceLine" id="cb23-3" title="3">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>)){</a>
-<a class="sourceLine" id="cb23-4" title="4">    </a>
-<a class="sourceLine" id="cb23-5" title="5">    <span class="kw">print</span>(<span class="kw">paste</span>(i, j))</a>
-<a class="sourceLine" id="cb23-6" title="6">  }</a>
-<a class="sourceLine" id="cb23-7" title="7">}</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb24-2" title="2">  </a>
+<a class="sourceLine" id="cb24-3" title="3">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>)){</a>
+<a class="sourceLine" id="cb24-4" title="4">    </a>
+<a class="sourceLine" id="cb24-5" title="5">    <span class="kw">print</span>(<span class="kw">paste</span>(i, j))</a>
+<a class="sourceLine" id="cb24-6" title="6">  }</a>
+<a class="sourceLine" id="cb24-7" title="7">}</a></code></pre></div>
 <pre><code>## [1] &quot;1 a&quot;
 ## [1] &quot;1 b&quot;
 ## [1] &quot;1 c&quot;
@@ -261,46 +261,46 @@ For each combination of passenger class and sex in the titanic dataset calculate
 <div id="growing-outputs" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Growing outputs</h3>
 <p>A strength of loops is that we can use them to perform the same analysis over and over. However there are two ways of storing the output. The first is known as the <em>balloon method</em> and involves continually expanding the size of your output. For example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">output_vector &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb26-2" title="2"></a>
-<a class="sourceLine" id="cb26-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
-<a class="sourceLine" id="cb26-4" title="4">  </a>
-<a class="sourceLine" id="cb26-5" title="5">  output_vector &lt;-<span class="st"> </span><span class="kw">c</span>(output_vector,</a>
-<a class="sourceLine" id="cb26-6" title="6">                     <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb26-7" title="7">  </a>
-<a class="sourceLine" id="cb26-8" title="8">  <span class="kw">print</span>(output_vector)</a>
-<a class="sourceLine" id="cb26-9" title="9">  </a>
-<a class="sourceLine" id="cb26-10" title="10">}</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">output_vector &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb27-2" title="2"></a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb27-4" title="4">  </a>
+<a class="sourceLine" id="cb27-5" title="5">  output_vector &lt;-<span class="st"> </span><span class="kw">c</span>(output_vector,</a>
+<a class="sourceLine" id="cb27-6" title="6">                     <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb27-7" title="7">  </a>
+<a class="sourceLine" id="cb27-8" title="8">  <span class="kw">print</span>(output_vector)</a>
+<a class="sourceLine" id="cb27-9" title="9">  </a>
+<a class="sourceLine" id="cb27-10" title="10">}</a></code></pre></div>
 <pre><code>## [1] 1
-## [1] 1 5
-## [1] 1 5 2
-## [1] 1 5 2 4
-## [1] 1 5 2 4 2
-## [1] 1 5 2 4 2 2
-## [1] 1 5 2 4 2 2 3
-## [1] 1 5 2 4 2 2 3 2
-## [1] 1 5 2 4 2 2 3 2 4
-##  [1] 1 5 2 4 2 2 3 2 4 1</code></pre>
+## [1] 1 3
+## [1] 1 3 3
+## [1] 1 3 3 1
+## [1] 1 3 3 1 4
+## [1] 1 3 3 1 4 5
+## [1] 1 3 3 1 4 5 4
+## [1] 1 3 3 1 4 5 4 3
+## [1] 1 3 3 1 4 5 4 3 3
+##  [1] 1 3 3 1 4 5 4 3 3 2</code></pre>
 <p>The alternative is the <em>bottle method</em> which involves creating an empty output of the correct size and then filling it piece by piece. The <em>balloon method</em> is easier to set up but the <em>bottle method</em> is more computationally efficient as it does not involve re-writing the output everytime you add to it. For example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">output_vector &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb28-2" title="2"></a>
-<a class="sourceLine" id="cb28-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
-<a class="sourceLine" id="cb28-4" title="4">  </a>
-<a class="sourceLine" id="cb28-5" title="5">  output_vector[i] &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb28-6" title="6"></a>
-<a class="sourceLine" id="cb28-7" title="7">  <span class="kw">print</span>(output_vector)</a>
-<a class="sourceLine" id="cb28-8" title="8">  </a>
-<a class="sourceLine" id="cb28-9" title="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">output_vector &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb29-2" title="2"></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb29-4" title="4">  </a>
+<a class="sourceLine" id="cb29-5" title="5">  output_vector[i] &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb29-6" title="6"></a>
+<a class="sourceLine" id="cb29-7" title="7">  <span class="kw">print</span>(output_vector)</a>
+<a class="sourceLine" id="cb29-8" title="8">  </a>
+<a class="sourceLine" id="cb29-9" title="9">}</a></code></pre></div>
 <pre><code>##  [1] 5 0 0 0 0 0 0 0 0 0
-##  [1] 5 2 0 0 0 0 0 0 0 0
-##  [1] 5 2 5 0 0 0 0 0 0 0
-##  [1] 5 2 5 4 0 0 0 0 0 0
-##  [1] 5 2 5 4 3 0 0 0 0 0
-##  [1] 5 2 5 4 3 3 0 0 0 0
-##  [1] 5 2 5 4 3 3 1 0 0 0
-##  [1] 5 2 5 4 3 3 1 3 0 0
-##  [1] 5 2 5 4 3 3 1 3 5 0
-##  [1] 5 2 5 4 3 3 1 3 5 1</code></pre>
+##  [1] 5 3 0 0 0 0 0 0 0 0
+##  [1] 5 3 4 0 0 0 0 0 0 0
+##  [1] 5 3 4 4 0 0 0 0 0 0
+##  [1] 5 3 4 4 1 0 0 0 0 0
+##  [1] 5 3 4 4 1 3 0 0 0 0
+##  [1] 5 3 4 4 1 3 5 0 0 0
+##  [1] 5 3 4 4 1 3 5 2 0 0
+##  [1] 5 3 4 4 1 3 5 2 2 0
+##  [1] 5 3 4 4 1 3 5 2 2 1</code></pre>
 <pre><code>###################
 ### CHALLENGE 6 ###
 ###################
@@ -318,15 +318,15 @@ Use the system.time() function to compare how long it takes to use the balloon a
   
 }</code></pre>
 <p>For example:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb32-2" title="2"></a>
-<a class="sourceLine" id="cb32-3" title="3"><span class="cf">while</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb32-4" title="4">  </a>
-<a class="sourceLine" id="cb32-5" title="5">  x &lt;-<span class="st"> </span>x <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb32-6" title="6">  </a>
-<a class="sourceLine" id="cb32-7" title="7">  <span class="kw">print</span>(x)</a>
-<a class="sourceLine" id="cb32-8" title="8">  </a>
-<a class="sourceLine" id="cb32-9" title="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb33-2" title="2"></a>
+<a class="sourceLine" id="cb33-3" title="3"><span class="cf">while</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb33-4" title="4">  </a>
+<a class="sourceLine" id="cb33-5" title="5">  x &lt;-<span class="st"> </span>x <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb33-6" title="6">  </a>
+<a class="sourceLine" id="cb33-7" title="7">  <span class="kw">print</span>(x)</a>
+<a class="sourceLine" id="cb33-8" title="8">  </a>
+<a class="sourceLine" id="cb33-9" title="9">}</a></code></pre></div>
 <pre><code>## [1] 9
 ## [1] 8
 ## [1] 7
@@ -345,73 +345,73 @@ Use a while loop to simulate a population decline. Start with a population of 10
 </div>
 <div id="challenge-answers-1" class="section level2">
 <h2><span class="header-section-number">6.3</span> Challenge Answers</h2>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="co">###################</span></a>
-<a class="sourceLine" id="cb35-2" title="2"><span class="co">### CHALLENGE 4 </span><span class="al">###</span></a>
-<a class="sourceLine" id="cb35-3" title="3"><span class="co">###################</span></a>
-<a class="sourceLine" id="cb35-4" title="4"></a>
-<a class="sourceLine" id="cb35-5" title="5"><span class="cf">for</span>(class <span class="cf">in</span> <span class="kw">unique</span>(titanic<span class="op">$</span>Pclass)){</a>
-<a class="sourceLine" id="cb35-6" title="6">  </a>
-<a class="sourceLine" id="cb35-7" title="7">  mean_surv &lt;-<span class="st"> </span><span class="kw">mean</span>(titanic[titanic<span class="op">$</span>Pclass <span class="op">==</span><span class="st"> </span>class, <span class="st">&quot;Survived&quot;</span>],</a>
-<a class="sourceLine" id="cb35-8" title="8">                    <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb35-9" title="9">  </a>
-<a class="sourceLine" id="cb35-10" title="10">  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The mean survival rate of class&quot;</span>, class, <span class="st">&quot;was&quot;</span>, mean_surv))</a>
-<a class="sourceLine" id="cb35-11" title="11">  </a>
-<a class="sourceLine" id="cb35-12" title="12">}</a></code></pre></div>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="co">###################</span></a>
-<a class="sourceLine" id="cb36-2" title="2"><span class="co">### CHALLENGE 5 </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb36-2" title="2"><span class="co">### CHALLENGE 4 </span><span class="al">###</span></a>
 <a class="sourceLine" id="cb36-3" title="3"><span class="co">###################</span></a>
 <a class="sourceLine" id="cb36-4" title="4"></a>
 <a class="sourceLine" id="cb36-5" title="5"><span class="cf">for</span>(class <span class="cf">in</span> <span class="kw">unique</span>(titanic<span class="op">$</span>Pclass)){</a>
 <a class="sourceLine" id="cb36-6" title="6">  </a>
-<a class="sourceLine" id="cb36-7" title="7">  <span class="cf">for</span>(sex <span class="cf">in</span> <span class="kw">unique</span>(titanic<span class="op">$</span>Sex)){</a>
-<a class="sourceLine" id="cb36-8" title="8">    </a>
-<a class="sourceLine" id="cb36-9" title="9">  mean_surv &lt;-<span class="st"> </span><span class="kw">mean</span>(titanic[titanic<span class="op">$</span>Pclass <span class="op">==</span><span class="st"> </span>class <span class="op">&amp;</span></a>
-<a class="sourceLine" id="cb36-10" title="10"><span class="st">                              </span>titanic<span class="op">$</span>Sex <span class="op">==</span><span class="st"> </span>sex, </a>
-<a class="sourceLine" id="cb36-11" title="11">                            <span class="st">&quot;Survived&quot;</span>],</a>
-<a class="sourceLine" id="cb36-12" title="12">                    <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb36-13" title="13">  </a>
-<a class="sourceLine" id="cb36-14" title="14">  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The mean survival rate of&quot;</span>, sex, <span class="st">&quot;passengers in class&quot;</span>, class, <span class="st">&quot;was&quot;</span>, mean_surv))</a>
-<a class="sourceLine" id="cb36-15" title="15">    </a>
-<a class="sourceLine" id="cb36-16" title="16">  }</a>
-<a class="sourceLine" id="cb36-17" title="17">}</a></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="co">### Balloon method</span></a>
-<a class="sourceLine" id="cb37-2" title="2"></a>
-<a class="sourceLine" id="cb37-3" title="3">output_vector &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb36-7" title="7">  mean_surv &lt;-<span class="st"> </span><span class="kw">mean</span>(titanic[titanic<span class="op">$</span>Pclass <span class="op">==</span><span class="st"> </span>class, <span class="st">&quot;Survived&quot;</span>],</a>
+<a class="sourceLine" id="cb36-8" title="8">                    <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb36-9" title="9">  </a>
+<a class="sourceLine" id="cb36-10" title="10">  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The mean survival rate of class&quot;</span>, class, <span class="st">&quot;was&quot;</span>, mean_surv))</a>
+<a class="sourceLine" id="cb36-11" title="11">  </a>
+<a class="sourceLine" id="cb36-12" title="12">}</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="co">### CHALLENGE 5 </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb37-3" title="3"><span class="co">###################</span></a>
 <a class="sourceLine" id="cb37-4" title="4"></a>
-<a class="sourceLine" id="cb37-5" title="5"><span class="kw">system.time</span>(</a>
+<a class="sourceLine" id="cb37-5" title="5"><span class="cf">for</span>(class <span class="cf">in</span> <span class="kw">unique</span>(titanic<span class="op">$</span>Pclass)){</a>
 <a class="sourceLine" id="cb37-6" title="6">  </a>
-<a class="sourceLine" id="cb37-7" title="7">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
+<a class="sourceLine" id="cb37-7" title="7">  <span class="cf">for</span>(sex <span class="cf">in</span> <span class="kw">unique</span>(titanic<span class="op">$</span>Sex)){</a>
 <a class="sourceLine" id="cb37-8" title="8">    </a>
-<a class="sourceLine" id="cb37-9" title="9">    output_vector &lt;-<span class="st"> </span><span class="kw">c</span>(output_vector,</a>
-<a class="sourceLine" id="cb37-10" title="10">                       <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb37-11" title="11">    </a>
-<a class="sourceLine" id="cb37-12" title="12">  }</a>
-<a class="sourceLine" id="cb37-13" title="13">)</a>
-<a class="sourceLine" id="cb37-14" title="14"></a>
-<a class="sourceLine" id="cb37-15" title="15"><span class="co">### Bottle Method</span></a>
-<a class="sourceLine" id="cb37-16" title="16"></a>
-<a class="sourceLine" id="cb37-17" title="17">output_vector &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> <span class="dv">10000</span>)</a>
-<a class="sourceLine" id="cb37-18" title="18"></a>
-<a class="sourceLine" id="cb37-19" title="19"><span class="kw">system.time</span>(</a>
-<a class="sourceLine" id="cb37-20" title="20">  </a>
-<a class="sourceLine" id="cb37-21" title="21">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
-<a class="sourceLine" id="cb37-22" title="22">    </a>
-<a class="sourceLine" id="cb37-23" title="23">    output_vector[i] &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb37-24" title="24">    </a>
-<a class="sourceLine" id="cb37-25" title="25">  }</a>
-<a class="sourceLine" id="cb37-26" title="26">)</a></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co">###################</span></a>
-<a class="sourceLine" id="cb38-2" title="2"><span class="co">### CHALLENGE 7 </span><span class="al">###</span></a>
-<a class="sourceLine" id="cb38-3" title="3"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb37-9" title="9">  mean_surv &lt;-<span class="st"> </span><span class="kw">mean</span>(titanic[titanic<span class="op">$</span>Pclass <span class="op">==</span><span class="st"> </span>class <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb37-10" title="10"><span class="st">                              </span>titanic<span class="op">$</span>Sex <span class="op">==</span><span class="st"> </span>sex, </a>
+<a class="sourceLine" id="cb37-11" title="11">                            <span class="st">&quot;Survived&quot;</span>],</a>
+<a class="sourceLine" id="cb37-12" title="12">                    <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb37-13" title="13">  </a>
+<a class="sourceLine" id="cb37-14" title="14">  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The mean survival rate of&quot;</span>, sex, <span class="st">&quot;passengers in class&quot;</span>, class, <span class="st">&quot;was&quot;</span>, mean_surv))</a>
+<a class="sourceLine" id="cb37-15" title="15">    </a>
+<a class="sourceLine" id="cb37-16" title="16">  }</a>
+<a class="sourceLine" id="cb37-17" title="17">}</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co">### Balloon method</span></a>
+<a class="sourceLine" id="cb38-2" title="2"></a>
+<a class="sourceLine" id="cb38-3" title="3">output_vector &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
 <a class="sourceLine" id="cb38-4" title="4"></a>
-<a class="sourceLine" id="cb38-5" title="5">population &lt;-<span class="st"> </span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb38-6" title="6"></a>
-<a class="sourceLine" id="cb38-7" title="7"><span class="cf">while</span>(population <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb38-8" title="8">  </a>
-<a class="sourceLine" id="cb38-9" title="9">  population &lt;-<span class="st"> </span>population <span class="op">-</span><span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb38-10" title="10">  </a>
-<a class="sourceLine" id="cb38-11" title="11">  <span class="kw">print</span>(population)</a>
-<a class="sourceLine" id="cb38-12" title="12">}</a></code></pre></div>
+<a class="sourceLine" id="cb38-5" title="5"><span class="kw">system.time</span>(</a>
+<a class="sourceLine" id="cb38-6" title="6">  </a>
+<a class="sourceLine" id="cb38-7" title="7">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
+<a class="sourceLine" id="cb38-8" title="8">    </a>
+<a class="sourceLine" id="cb38-9" title="9">    output_vector &lt;-<span class="st"> </span><span class="kw">c</span>(output_vector,</a>
+<a class="sourceLine" id="cb38-10" title="10">                       <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb38-11" title="11">    </a>
+<a class="sourceLine" id="cb38-12" title="12">  }</a>
+<a class="sourceLine" id="cb38-13" title="13">)</a>
+<a class="sourceLine" id="cb38-14" title="14"></a>
+<a class="sourceLine" id="cb38-15" title="15"><span class="co">### Bottle Method</span></a>
+<a class="sourceLine" id="cb38-16" title="16"></a>
+<a class="sourceLine" id="cb38-17" title="17">output_vector &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> <span class="dv">10000</span>)</a>
+<a class="sourceLine" id="cb38-18" title="18"></a>
+<a class="sourceLine" id="cb38-19" title="19"><span class="kw">system.time</span>(</a>
+<a class="sourceLine" id="cb38-20" title="20">  </a>
+<a class="sourceLine" id="cb38-21" title="21">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
+<a class="sourceLine" id="cb38-22" title="22">    </a>
+<a class="sourceLine" id="cb38-23" title="23">    output_vector[i] &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb38-24" title="24">    </a>
+<a class="sourceLine" id="cb38-25" title="25">  }</a>
+<a class="sourceLine" id="cb38-26" title="26">)</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="co">### CHALLENGE 7 </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb39-3" title="3"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb39-4" title="4"></a>
+<a class="sourceLine" id="cb39-5" title="5">population &lt;-<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb39-6" title="6"></a>
+<a class="sourceLine" id="cb39-7" title="7"><span class="cf">while</span>(population <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb39-8" title="8">  </a>
+<a class="sourceLine" id="cb39-9" title="9">  population &lt;-<span class="st"> </span>population <span class="op">-</span><span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb39-10" title="10">  </a>
+<a class="sourceLine" id="cb39-11" title="11">  <span class="kw">print</span>(population)</a>
+<a class="sourceLine" id="cb39-12" title="12">}</a></code></pre></div>
 
 </div>
 </div>

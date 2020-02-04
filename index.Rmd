@@ -27,6 +27,6 @@ Attendees are also asked to install both [**R**](https://www.r-project.org/) and
 
 For this workshop we will be using a dataset on passengers from the Titanic. It can be loaded like so:
 
-```{r eval = TRUE, echo = FALSE}
+```{r eval = TRUE, echo = TRUE}
 titanic <- read.csv("https://goo.gl/4Gqsnz")
 ```
