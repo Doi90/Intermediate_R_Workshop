@@ -28,10 +28,10 @@ for(i in 1:10){
 
 ```{}
 ###################
-### CHALLENGE 1 ###
+### CHALLENGE 4 ###
 ###################
 
-Basic for loop challenge
+For each of the passenger classes in the titanic dataset calculate the mean survival rate of that class
 ```
 
 ### Nested `for` loops
@@ -50,13 +50,50 @@ for(i in 1:5){
 
 ```{}
 ###################
-### CHALLENGE 2 ###
+### CHALLENGE 5 ###
 ###################
 
-Nested for loop challenge
+For each combination of passenger class and sex in the titanic dataset calculate the mean survival rate
 ```
 
-Something about growing output?
+### Growing outputs
+
+A strength of loops is that we can use them to perform the same analysis over and over. However there are two ways of storing the output. The first is known as the *balloon method* and involves continually expanding the size of your output. For example:
+
+```{r}
+output_vector <- c()
+
+for(i in 1:10){
+  
+  output_vector <- c(output_vector,
+                     sample(1:5, 1))
+  
+  print(output_vector)
+  
+}
+```
+
+The alternative is the *bottle method* which involves creating an empty output of the correct size and then filling it piece by piece. The *balloon method* is easier to set up but the *bottle method* is more computationally efficient as it does not involve re-writing the output everytime you add to it. For example:
+
+```{r}
+output_vector <- rep(0, 10)
+
+for(i in 1:10){
+  
+  output_vector[i] <- sample(1:5, 1)
+
+  print(output_vector)
+  
+}
+```
+
+```{}
+###################
+### CHALLENGE 6 ###
+###################
+
+Use the system.time() function to compare how long it takes to use the balloon and bottle methods to create a vector 10,000 elements long
+```
 
 ## `while` loops
 
@@ -88,8 +125,90 @@ while(x > 0){
 
 ```{}
 ###################
-### CHALLENGE 3 ###
+### CHALLENGE 7 ###
 ###################
 
 Use a while loop to simulate a population decline. Start with a population of 100 and then use the sample() function to have it decline between 1-5 individuals per time step.
 ```
+
+## Challenge Answers
+
+```{r, eval = FALSE}
+###################
+### CHALLENGE 4 ###
+###################
+
+for(class in unique(titanic$Pclass)){
+  
+  mean_surv <- mean(titanic[titanic$Pclass == class, "Survived"],
+                    na.rm = TRUE)
+  
+  print(paste("The mean survival rate of class", class, "was", mean_surv))
+  
+}
+```
+
+```{r, eval = FALSE}
+###################
+### CHALLENGE 5 ###
+###################
+
+for(class in unique(titanic$Pclass)){
+  
+  for(sex in unique(titanic$Sex)){
+    
+  mean_surv <- mean(titanic[titanic$Pclass == class &
+                              titanic$Sex == sex, 
+                            "Survived"],
+                    na.rm = TRUE)
+  
+  print(paste("The mean survival rate of", sex, "passengers in class", class, "was", mean_surv))
+    
+  }
+}
+```
+
+```{r, eval = FALSE}
+### Balloon method
+
+output_vector <- c()
+
+system.time(
+  
+  for(i in 1:10000){
+    
+    output_vector <- c(output_vector,
+                       1)
+    
+  }
+)
+
+### Bottle Method
+
+output_vector <- vector(length = 10000)
+
+system.time(
+  
+  for(i in 1:10000){
+    
+    output_vector[i] <- 1
+    
+  }
+)
+```
+
+```{r, eval = FALSE}
+###################
+### CHALLENGE 7 ###
+###################
+
+population <- 100
+
+while(population > 0){
+  
+  population <- population - sample(1:5, 1)
+  
+  print(population)
+}
+```
+
