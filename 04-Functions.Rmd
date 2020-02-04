@@ -1,9 +1,5 @@
 # Functions
 
-```{r eval = TRUE, echo = FALSE}
-titanic <- read.csv("https://goo.gl/4Gqsnz")
-```
-
 ## What is a function?
 
 Functions let us repeat several operations with a single command. This is useful when we want to apply the same process exactly to different inputs, as we only need to define the process (i.e. write the code) once rather than for each input. In fact, almost everything we've already covered today is a function.
