@@ -112,3 +112,62 @@ ifelse(test = x %% 2 == 0,
 
 Add a new column to the titanic dataset called "Adult" that is a binary variable indicating whether that passenger is an 18 or older.
 ```
+
+## Challenge Answers
+
+```{r, eval = FALSE}
+###################
+### Challenge 1 ###
+###################
+
+if(any(titanic$Age > 100,
+       na.rm = TRUE)){
+  
+  print("There are passengers older than 100")
+  
+}
+
+if(any(titanic$Age > 70,
+       na.rm = TRUE)){
+  
+  print("There are passengers older than 70")
+  
+}
+```
+
+```{r, eval = FALSE}
+###################
+### CHALLENGE 2 ###
+###################
+
+passenger <- titanic[sample(1:nrow(titanic), 1), ]
+
+if(is.na(passenger$Age)){
+  
+  print("The passenger has no recorded age")
+  
+} else if(passenger$Age < 20){
+  
+  print("The passenger is less than 20 years old")
+
+} else if(passenger$Age >= 20 & <= 50){
+  
+  print("The passenger is between 20 and 50 years old")
+
+} else if(passenger$Age > 50){
+  
+  print("The passenger is greater than 50 years old")
+
+}
+```
+
+```{r, eval = FALSE}
+###################
+### CHALLENGE 3 ###
+###################
+
+titanic$Adult <- ifelse(titanic$Age < 18,
+                        yes = 0,
+                        no = 1)
+```
+
