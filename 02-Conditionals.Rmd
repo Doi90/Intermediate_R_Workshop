@@ -90,7 +90,7 @@ if(x < 0){
 ### CHALLENGE 2 ###
 ###################
 
-if else challenge
+Randomly sample one passenger from the titanic dataset. Then construct an if else statement to print a message about whether the passenger is younger than 20, between 20 and 50, or over 50 years old.
 ```
 
 ## The `ifelse()` function
@@ -110,5 +110,5 @@ ifelse(test = x %% 2 == 0,
 ### CHALLENGE 3 ###
 ###################
 
-ifelse challenge
+Add a new column to the titanic dataset called "Adult" that is a binary variable indicating whether that passenger is an 18 or older.
 ```
