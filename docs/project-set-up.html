@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Project Set-up | Intermediate R Workshop</title>
+  <meta name="description" content="4 Project Set-up | Intermediate R Workshop" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Project Set-up | Intermediate R Workshop" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="Doi90/Intermediate_R_Workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Project Set-up | Intermediate R Workshop" />
+  
+  
+  
+
+<meta name="author" content="David Wilkinson" />
+
+
+<meta name="date" content="2020-02-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dataset.html"/>
+<link rel="next" href="conditionals.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="lodestar.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intermediate R Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preamble</a></li>
+<li class="chapter" data-level="2" data-path="technical-requirements.html"><a href="technical-requirements.html"><i class="fa fa-check"></i><b>2</b> Technical Requirements</a></li>
+<li class="chapter" data-level="3" data-path="dataset.html"><a href="dataset.html"><i class="fa fa-check"></i><b>3</b> Dataset</a></li>
+<li class="chapter" data-level="4" data-path="project-set-up.html"><a href="project-set-up.html"><i class="fa fa-check"></i><b>4</b> Project Set-up</a><ul>
+<li class="chapter" data-level="4.1" data-path="project-set-up.html"><a href="project-set-up.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="project-set-up.html"><a href="project-set-up.html#directory-structures"><i class="fa fa-check"></i><b>4.2</b> Directory structures</a></li>
+<li class="chapter" data-level="4.3" data-path="project-set-up.html"><a href="project-set-up.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R Projects</a></li>
+<li class="chapter" data-level="4.4" data-path="project-set-up.html"><a href="project-set-up.html#code-script-structures"><i class="fa fa-check"></i><b>4.4</b> Code script structures</a></li>
+<li class="chapter" data-level="4.5" data-path="project-set-up.html"><a href="project-set-up.html#code-style-guides"><i class="fa fa-check"></i><b>4.5</b> Code style guides</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>5</b> Conditionals</a><ul>
+<li class="chapter" data-level="5.1" data-path="conditionals.html"><a href="conditionals.html#if-statements"><i class="fa fa-check"></i><b>5.1</b> <code>if</code> statements</a></li>
+<li class="chapter" data-level="5.2" data-path="conditionals.html"><a href="conditionals.html#if-else-statements"><i class="fa fa-check"></i><b>5.2</b> <code>if else</code> statements</a></li>
+<li class="chapter" data-level="5.3" data-path="conditionals.html"><a href="conditionals.html#the-ifelse-function"><i class="fa fa-check"></i><b>5.3</b> The <code>ifelse()</code> function</a></li>
+<li class="chapter" data-level="5.4" data-path="conditionals.html"><a href="conditionals.html#challenge-answers"><i class="fa fa-check"></i><b>5.4</b> Challenge Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>6</b> Loops</a><ul>
+<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#for-loops"><i class="fa fa-check"></i><b>6.1</b> <code>for</code> loops</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="loops.html"><a href="loops.html#nested-for-loops"><i class="fa fa-check"></i><b>6.1.1</b> Nested <code>for</code> loops</a></li>
+<li class="chapter" data-level="6.1.2" data-path="loops.html"><a href="loops.html#growing-outputs"><i class="fa fa-check"></i><b>6.1.2</b> Growing outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#while-loops"><i class="fa fa-check"></i><b>6.2</b> <code>while</code> loops</a></li>
+<li class="chapter" data-level="6.3" data-path="loops.html"><a href="loops.html#challenge-answers-1"><i class="fa fa-check"></i><b>6.3</b> Challenge Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>7</b> Functions</a><ul>
+<li class="chapter" data-level="7.1" data-path="functions.html"><a href="functions.html#what-is-a-function"><i class="fa fa-check"></i><b>7.1</b> What is a function?</a></li>
+<li class="chapter" data-level="7.2" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>7.2</b> Function structure</a></li>
+<li class="chapter" data-level="7.3" data-path="functions.html"><a href="functions.html#define-our-own-function"><i class="fa fa-check"></i><b>7.3</b> Define our own function</a></li>
+<li class="chapter" data-level="7.4" data-path="functions.html"><a href="functions.html#nesting-functions"><i class="fa fa-check"></i><b>7.4</b> Nesting functions</a></li>
+<li class="chapter" data-level="7.5" data-path="functions.html"><a href="functions.html#applying-functions-to-datasets"><i class="fa fa-check"></i><b>7.5</b> Applying functions to datasets</a></li>
+<li class="chapter" data-level="7.6" data-path="functions.html"><a href="functions.html#challenge-answers-2"><i class="fa fa-check"></i><b>7.6</b> Challenge Answers</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://nikkirubinstein.gitbooks.io/resguides-introductory-r-workshop/content/" target="blank"> Modified with permission from Research Platforms Services material</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intermediate R Workshop</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="project-set-up" class="section level1">
+<h1><span class="header-section-number">4</span> Project Set-up</h1>
+<hr class="double">
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>Before we jump in to coding in <code>R</code> we’re going to establish some programming <em>best practices</em>. These will not only make your programming experience proceed more smoothly, but most importantly you will thank yourself in six months for adopting them now when you have to revisit an older script and have to figure out <em>what</em> you did, <em>how</em> you did it, and <em>why</em> you did it that way.</p>
+<hr class="small">
+</div>
+<div id="directory-structures" class="section level2">
+<h2><span class="header-section-number">4.2</span> Directory structures</h2>
+<p>It is best to keep all files associated with a given project (like a PhD chapter) located in a single root folder. This is commonly called a “one folder, one project” mentality, and has multiple benefits including:</p>
+<ul>
+<li>Easy communication with collaborators (particularly in a version controlled environment)</li>
+<li>A clear, easily navigable directory structure makes finding specific files easier</li>
+<li>You don’t accidentally lose an important file for your analysis because you kept it somewhere else</li>
+</ul>
+<p>That said, there is no single best way to organise a file system. The key is to make sure that your chosen directory structure and the location of the files therein is consistent, informative, and, most importantly, works for you.</p>
+<p>An example directory structure (for a <code>MyProject</code> root directory) might include the following:</p>
+<ul>
+<li>A <code>data</code> folder that contains all input data (and associated metadata) for the analysis. This is then potentially split further into:</li>
+<li>A <code>raw</code> folder for your raw data files. These should never be modified so it is best to keep them separate.</li>
+<li>A <code>clean</code> folder for your cleaned up versions of your raw data files.</li>
+<li>A <code>doc</code> or <code>reports</code> folder for any manuscripts. This can include the manuscript submitted to a journal for publication, reports for a funding body like a government or NGO, or some markdown files documenting the steps of the analysis. You may wish to sub-divide this folder to include these different types or, alternatively, include both a <code>docs</code> and <code>reports</code> folder</li>
+<li>A <code>figs</code> or <code>images</code> folder for any graphs and figures generated in the analysis</li>
+<li>An <code>output</code> folder to store any type of intermediate or output files. This could include model objects, simulations, etc. Some people prefer to store their cleaned data here instead of in a sub-directory of <code>data</code></li>
+<li>A <code>scripts</code> folder to store the code scripts used in the analysis</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">### Challenge 1 </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co"># Build your own project directory structure for this workshop. For our purposes today you will require at least a `data`, `scripts`, and `images` folder</span></a></code></pre></div>
+<hr class="small">
+</div>
+<div id="r-projects" class="section level2">
+<h2><span class="header-section-number">4.3</span> R Projects</h2>
+<p>R builds on the “one folder, one project” mentality with the creation of <code>R Projects</code>. An <code>R Project</code> serves as a self-contained environment for your entire analysis. Amongst other things, the benefits of an <code>R Project</code> are:</p>
+<ul>
+<li>Relative file paths. The path to a file now only needs to be specified relative to the <code>R project</code> root directory. No more file paths going off the screen!</li>
+<li>Maintain your environment between sessions. Normally, unless explicitly saved to file and re-loaded, your environment is lost between sessions. This means re-running your code again and again, which is infeasible for larger analysis that may take hours or days to run. An <code>R project</code> will automatically save and re-load your environment.</li>
+<li>Easy collaboration. A combination of the two above points means that you can send an <code>R project</code> directory to a colleague and the whole thing will run with no issue. This would otherwise require, at minimum, manually changing all file paths.</li>
+<li>Version control. <code>RStudio</code> has an in-built point-and-click git interface that is only accessible when using an <code>R Project</code>.</li>
+</ul>
+<p>You can either start an <code>R Project</code> from scratch by creating a new directory, or add <code>R Project</code> functionality to an existing directory. You can create an <code>R Project</code> from either the <code>File</code> menu in the top left of the screen, or from the <code>Project</code> menu in the top right.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">### Challenge 2 </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co"># Add an `R Project` to the existing directory you created in Challenge 1. </span></a></code></pre></div>
+<hr class="small">
+</div>
+<div id="code-script-structures" class="section level2">
+<h2><span class="header-section-number">4.4</span> Code script structures</h2>
+<p>A script is essentially a text file that <code>R</code> recognises as containing <code>R</code> code and providing it with syntax highlighting. You can run <code>R</code> commands in the <code>Console</code>, but there is no way of saving the commands you’ve used for future reference. Instead you can enter your commands in a script file to save them like any other document. Much like for directories, it is important to structure your code scripts. Without structure it is extremely difficult to return to an old script and figure out what you’ve done.</p>
+<p>Just like there is no single correct way of structuring a directory, there is no single correct way of structuring a script. It is up to you to settle on a structure that works for you. Some things to consider using:</p>
+<ul>
+<li>A title and “script abstract” at the top of the script saying what the script is for and how it does it.</li>
+<li>Use headings/subheadings to make navigating between sections easier. These will obviously depend on what the script is doing, but common ones include <code>Load Packages</code>, <code>Load Data</code>, <code>Data Manipulation</code>, <code>Model Fitting</code>, <code>Plotting</code>, and <code>Save Outputs</code>.</li>
+<li>Have any loaded packages called at the beginning of the script. This avoids some of the issues that may arise from function masking, and makes it easy for anyone else using the script to identify the packages they need to install.</li>
+<li>Comment your code! Add comments to your code to remind you not only <em>what</em> you’ve done but <em>why</em> you’ve done it that way. If you come back to a script from six months ago it will be much easier to remember what you’ve done.</li>
+</ul>
+<hr class="small">
+</div>
+<div id="code-style-guides" class="section level2">
+<h2><span class="header-section-number">4.5</span> Code style guides</h2>
+<p>Another thing that makes reading a code script easier is the use of a style guide. A style guide is essentially a series of self-imposed grammar/syntax rules to follow to write neat and human-readable code. Two commonly adopted ones are <a href="https://google.github.io/styleguide/Rguide.xml">Google’s <code>R</code> style guide</a> and <a href="http://style.tidyverse.org/">Hadley Wickham’s <code>R</code> style guide</a>. You can also define your own by picking and choosing rules from different places. Some common things to consider:</p>
+<ul>
+<li>Naming conventions. Be consistent with how you name variables, functions, etc. Many people implement a different style for variables and functions to help tell them apart. Some options are:
+<ul>
+<li>camelCase</li>
+<li>PascalCase / UpperCamelCase</li>
+<li>snake_case</li>
+<li>snake.case.variant</li>
+<li>ALL_CAPS (normally reserved for constants)</li>
+</ul></li>
+<li><code>&lt;-</code> instead of <code>=</code> for variable assignment</li>
+<li>A line length of &lt;80 characters. This is more of a rule of thumb not hard and fast, but the idea is to keep from having to scroll across to read a full command</li>
+<li>Whitespace. <code>R</code> will ignore all whitespace in your code except for between a function name and it’s opening parenthesis i.e. <code>mean (1,2)</code>, and inside object names. Make use of it to make the code readable (e.g. on either side of an operator <code>1 + 2</code>) but don’t add it in unnecessarily.</li>
+<li>Multi-line function calls. <code>R</code> recognises that a function call is not finished if the line ends in a comma, so you can add each argument in a function to a new line to make it fit on a page. E.g.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">sum</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<hr class="small">
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dataset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conditionals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"search": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

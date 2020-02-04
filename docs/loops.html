@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Loops | Intermediate R Workshop</title>
+  <meta name="description" content="6 Loops | Intermediate R Workshop" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Loops | Intermediate R Workshop" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="Doi90/Intermediate_R_Workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Loops | Intermediate R Workshop" />
+  
+  
+  
+
+<meta name="author" content="David Wilkinson" />
+
+
+<meta name="date" content="2020-02-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="conditionals.html"/>
+<link rel="next" href="functions.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="lodestar.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intermediate R Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preamble</a></li>
+<li class="chapter" data-level="2" data-path="technical-requirements.html"><a href="technical-requirements.html"><i class="fa fa-check"></i><b>2</b> Technical Requirements</a></li>
+<li class="chapter" data-level="3" data-path="dataset.html"><a href="dataset.html"><i class="fa fa-check"></i><b>3</b> Dataset</a></li>
+<li class="chapter" data-level="4" data-path="project-set-up.html"><a href="project-set-up.html"><i class="fa fa-check"></i><b>4</b> Project Set-up</a><ul>
+<li class="chapter" data-level="4.1" data-path="project-set-up.html"><a href="project-set-up.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="project-set-up.html"><a href="project-set-up.html#directory-structures"><i class="fa fa-check"></i><b>4.2</b> Directory structures</a></li>
+<li class="chapter" data-level="4.3" data-path="project-set-up.html"><a href="project-set-up.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R Projects</a></li>
+<li class="chapter" data-level="4.4" data-path="project-set-up.html"><a href="project-set-up.html#code-script-structures"><i class="fa fa-check"></i><b>4.4</b> Code script structures</a></li>
+<li class="chapter" data-level="4.5" data-path="project-set-up.html"><a href="project-set-up.html#code-style-guides"><i class="fa fa-check"></i><b>4.5</b> Code style guides</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>5</b> Conditionals</a><ul>
+<li class="chapter" data-level="5.1" data-path="conditionals.html"><a href="conditionals.html#if-statements"><i class="fa fa-check"></i><b>5.1</b> <code>if</code> statements</a></li>
+<li class="chapter" data-level="5.2" data-path="conditionals.html"><a href="conditionals.html#if-else-statements"><i class="fa fa-check"></i><b>5.2</b> <code>if else</code> statements</a></li>
+<li class="chapter" data-level="5.3" data-path="conditionals.html"><a href="conditionals.html#the-ifelse-function"><i class="fa fa-check"></i><b>5.3</b> The <code>ifelse()</code> function</a></li>
+<li class="chapter" data-level="5.4" data-path="conditionals.html"><a href="conditionals.html#challenge-answers"><i class="fa fa-check"></i><b>5.4</b> Challenge Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>6</b> Loops</a><ul>
+<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#for-loops"><i class="fa fa-check"></i><b>6.1</b> <code>for</code> loops</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="loops.html"><a href="loops.html#nested-for-loops"><i class="fa fa-check"></i><b>6.1.1</b> Nested <code>for</code> loops</a></li>
+<li class="chapter" data-level="6.1.2" data-path="loops.html"><a href="loops.html#growing-outputs"><i class="fa fa-check"></i><b>6.1.2</b> Growing outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#while-loops"><i class="fa fa-check"></i><b>6.2</b> <code>while</code> loops</a></li>
+<li class="chapter" data-level="6.3" data-path="loops.html"><a href="loops.html#challenge-answers-1"><i class="fa fa-check"></i><b>6.3</b> Challenge Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>7</b> Functions</a><ul>
+<li class="chapter" data-level="7.1" data-path="functions.html"><a href="functions.html#what-is-a-function"><i class="fa fa-check"></i><b>7.1</b> What is a function?</a></li>
+<li class="chapter" data-level="7.2" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>7.2</b> Function structure</a></li>
+<li class="chapter" data-level="7.3" data-path="functions.html"><a href="functions.html#define-our-own-function"><i class="fa fa-check"></i><b>7.3</b> Define our own function</a></li>
+<li class="chapter" data-level="7.4" data-path="functions.html"><a href="functions.html#nesting-functions"><i class="fa fa-check"></i><b>7.4</b> Nesting functions</a></li>
+<li class="chapter" data-level="7.5" data-path="functions.html"><a href="functions.html#applying-functions-to-datasets"><i class="fa fa-check"></i><b>7.5</b> Applying functions to datasets</a></li>
+<li class="chapter" data-level="7.6" data-path="functions.html"><a href="functions.html#challenge-answers-2"><i class="fa fa-check"></i><b>7.6</b> Challenge Answers</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://nikkirubinstein.gitbooks.io/resguides-introductory-r-workshop/content/" target="blank"> Modified with permission from Research Platforms Services material</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intermediate R Workshop</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loops" class="section level1">
+<h1><span class="header-section-number">6</span> Loops</h1>
+<p>The second aspect of control flow is being able to repeat the same set of operations for a series of inputs. This is achieved by using loops to iteratively repeat your code until some condition is met.</p>
+<p>There are two types of loops in <code>R</code>: <code>for</code> loops and <code>while</code> loops. The most common is <code>for</code> loops where you repeat your code <em>for</em> each element in a series of inputs. <code>while</code> loops will repeat over the same set of code <em>while</em> a condition is met.</p>
+<div id="for-loops" class="section level2">
+<h2><span class="header-section-number">6.1</span> <code>for</code> loops</h2>
+<p>The basic syntax of a for loop is this:</p>
+<pre><code>for(iterator in some_things){
+
+  do this
+  
+}</code></pre>
+<p>A basic example:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb20-2" title="2">  </a>
+<a class="sourceLine" id="cb20-3" title="3">  <span class="kw">print</span>(i)</a>
+<a class="sourceLine" id="cb20-4" title="4">  </a>
+<a class="sourceLine" id="cb20-5" title="5">}</a></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<pre><code>###################
+### CHALLENGE 4 ###
+###################
+
+For each of the passenger classes in the titanic dataset calculate the mean survival rate of that class</code></pre>
+<div id="nested-for-loops" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Nested <code>for</code> loops</h3>
+<p>For situations where you need to loop over the different combinations of multiple iterators you can nest <code>for</code> loops within each other. For example:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb23-2" title="2">  </a>
+<a class="sourceLine" id="cb23-3" title="3">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>)){</a>
+<a class="sourceLine" id="cb23-4" title="4">    </a>
+<a class="sourceLine" id="cb23-5" title="5">    <span class="kw">print</span>(<span class="kw">paste</span>(i, j))</a>
+<a class="sourceLine" id="cb23-6" title="6">  }</a>
+<a class="sourceLine" id="cb23-7" title="7">}</a></code></pre></div>
+<pre><code>## [1] &quot;1 a&quot;
+## [1] &quot;1 b&quot;
+## [1] &quot;1 c&quot;
+## [1] &quot;1 d&quot;
+## [1] &quot;1 e&quot;
+## [1] &quot;2 a&quot;
+## [1] &quot;2 b&quot;
+## [1] &quot;2 c&quot;
+## [1] &quot;2 d&quot;
+## [1] &quot;2 e&quot;
+## [1] &quot;3 a&quot;
+## [1] &quot;3 b&quot;
+## [1] &quot;3 c&quot;
+## [1] &quot;3 d&quot;
+## [1] &quot;3 e&quot;
+## [1] &quot;4 a&quot;
+## [1] &quot;4 b&quot;
+## [1] &quot;4 c&quot;
+## [1] &quot;4 d&quot;
+## [1] &quot;4 e&quot;
+## [1] &quot;5 a&quot;
+## [1] &quot;5 b&quot;
+## [1] &quot;5 c&quot;
+## [1] &quot;5 d&quot;
+## [1] &quot;5 e&quot;</code></pre>
+<pre><code>###################
+### CHALLENGE 5 ###
+###################
+
+For each combination of passenger class and sex in the titanic dataset calculate the mean survival rate</code></pre>
+</div>
+<div id="growing-outputs" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Growing outputs</h3>
+<p>A strength of loops is that we can use them to perform the same analysis over and over. However there are two ways of storing the output. The first is known as the <em>balloon method</em> and involves continually expanding the size of your output. For example:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">output_vector &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb26-2" title="2"></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb26-4" title="4">  </a>
+<a class="sourceLine" id="cb26-5" title="5">  output_vector &lt;-<span class="st"> </span><span class="kw">c</span>(output_vector,</a>
+<a class="sourceLine" id="cb26-6" title="6">                     <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb26-7" title="7">  </a>
+<a class="sourceLine" id="cb26-8" title="8">  <span class="kw">print</span>(output_vector)</a>
+<a class="sourceLine" id="cb26-9" title="9">  </a>
+<a class="sourceLine" id="cb26-10" title="10">}</a></code></pre></div>
+<pre><code>## [1] 1
+## [1] 1 5
+## [1] 1 5 2
+## [1] 1 5 2 4
+## [1] 1 5 2 4 2
+## [1] 1 5 2 4 2 2
+## [1] 1 5 2 4 2 2 3
+## [1] 1 5 2 4 2 2 3 2
+## [1] 1 5 2 4 2 2 3 2 4
+##  [1] 1 5 2 4 2 2 3 2 4 1</code></pre>
+<p>The alternative is the <em>bottle method</em> which involves creating an empty output of the correct size and then filling it piece by piece. The <em>balloon method</em> is easier to set up but the <em>bottle method</em> is more computationally efficient as it does not involve re-writing the output everytime you add to it. For example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">output_vector &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb28-2" title="2"></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb28-4" title="4">  </a>
+<a class="sourceLine" id="cb28-5" title="5">  output_vector[i] &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb28-6" title="6"></a>
+<a class="sourceLine" id="cb28-7" title="7">  <span class="kw">print</span>(output_vector)</a>
+<a class="sourceLine" id="cb28-8" title="8">  </a>
+<a class="sourceLine" id="cb28-9" title="9">}</a></code></pre></div>
+<pre><code>##  [1] 5 0 0 0 0 0 0 0 0 0
+##  [1] 5 2 0 0 0 0 0 0 0 0
+##  [1] 5 2 5 0 0 0 0 0 0 0
+##  [1] 5 2 5 4 0 0 0 0 0 0
+##  [1] 5 2 5 4 3 0 0 0 0 0
+##  [1] 5 2 5 4 3 3 0 0 0 0
+##  [1] 5 2 5 4 3 3 1 0 0 0
+##  [1] 5 2 5 4 3 3 1 3 0 0
+##  [1] 5 2 5 4 3 3 1 3 5 0
+##  [1] 5 2 5 4 3 3 1 3 5 1</code></pre>
+<pre><code>###################
+### CHALLENGE 6 ###
+###################
+
+Use the system.time() function to compare how long it takes to use the balloon and bottle methods to create a vector 10,000 elements long</code></pre>
+</div>
+</div>
+<div id="while-loops" class="section level2">
+<h2><span class="header-section-number">6.2</span> <code>while</code> loops</h2>
+<p><code>while</code> loops have a more niche application, but are really useful for when you don’t know how long it will take you to get to the end. A great application example is population viability simulations where you keep progressing through time until the population dies out.</p>
+<p>The basic syntax looks life this:</p>
+<pre><code>while(condition is true){
+
+  do this
+  
+}</code></pre>
+<p>For example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb32-2" title="2"></a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="cf">while</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb32-4" title="4">  </a>
+<a class="sourceLine" id="cb32-5" title="5">  x &lt;-<span class="st"> </span>x <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb32-6" title="6">  </a>
+<a class="sourceLine" id="cb32-7" title="7">  <span class="kw">print</span>(x)</a>
+<a class="sourceLine" id="cb32-8" title="8">  </a>
+<a class="sourceLine" id="cb32-9" title="9">}</a></code></pre></div>
+<pre><code>## [1] 9
+## [1] 8
+## [1] 7
+## [1] 6
+## [1] 5
+## [1] 4
+## [1] 3
+## [1] 2
+## [1] 1
+## [1] 0</code></pre>
+<pre><code>###################
+### CHALLENGE 7 ###
+###################
+
+Use a while loop to simulate a population decline. Start with a population of 100 and then use the sample() function to have it decline between 1-5 individuals per time step.</code></pre>
+</div>
+<div id="challenge-answers-1" class="section level2">
+<h2><span class="header-section-number">6.3</span> Challenge Answers</h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="co">### CHALLENGE 4 </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb35-4" title="4"></a>
+<a class="sourceLine" id="cb35-5" title="5"><span class="cf">for</span>(class <span class="cf">in</span> <span class="kw">unique</span>(titanic<span class="op">$</span>Pclass)){</a>
+<a class="sourceLine" id="cb35-6" title="6">  </a>
+<a class="sourceLine" id="cb35-7" title="7">  mean_surv &lt;-<span class="st"> </span><span class="kw">mean</span>(titanic[titanic<span class="op">$</span>Pclass <span class="op">==</span><span class="st"> </span>class, <span class="st">&quot;Survived&quot;</span>],</a>
+<a class="sourceLine" id="cb35-8" title="8">                    <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb35-9" title="9">  </a>
+<a class="sourceLine" id="cb35-10" title="10">  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The mean survival rate of class&quot;</span>, class, <span class="st">&quot;was&quot;</span>, mean_surv))</a>
+<a class="sourceLine" id="cb35-11" title="11">  </a>
+<a class="sourceLine" id="cb35-12" title="12">}</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb36-2" title="2"><span class="co">### CHALLENGE 5 </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb36-3" title="3"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb36-4" title="4"></a>
+<a class="sourceLine" id="cb36-5" title="5"><span class="cf">for</span>(class <span class="cf">in</span> <span class="kw">unique</span>(titanic<span class="op">$</span>Pclass)){</a>
+<a class="sourceLine" id="cb36-6" title="6">  </a>
+<a class="sourceLine" id="cb36-7" title="7">  <span class="cf">for</span>(sex <span class="cf">in</span> <span class="kw">unique</span>(titanic<span class="op">$</span>Sex)){</a>
+<a class="sourceLine" id="cb36-8" title="8">    </a>
+<a class="sourceLine" id="cb36-9" title="9">  mean_surv &lt;-<span class="st"> </span><span class="kw">mean</span>(titanic[titanic<span class="op">$</span>Pclass <span class="op">==</span><span class="st"> </span>class <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb36-10" title="10"><span class="st">                              </span>titanic<span class="op">$</span>Sex <span class="op">==</span><span class="st"> </span>sex, </a>
+<a class="sourceLine" id="cb36-11" title="11">                            <span class="st">&quot;Survived&quot;</span>],</a>
+<a class="sourceLine" id="cb36-12" title="12">                    <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb36-13" title="13">  </a>
+<a class="sourceLine" id="cb36-14" title="14">  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The mean survival rate of&quot;</span>, sex, <span class="st">&quot;passengers in class&quot;</span>, class, <span class="st">&quot;was&quot;</span>, mean_surv))</a>
+<a class="sourceLine" id="cb36-15" title="15">    </a>
+<a class="sourceLine" id="cb36-16" title="16">  }</a>
+<a class="sourceLine" id="cb36-17" title="17">}</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="co">### Balloon method</span></a>
+<a class="sourceLine" id="cb37-2" title="2"></a>
+<a class="sourceLine" id="cb37-3" title="3">output_vector &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb37-4" title="4"></a>
+<a class="sourceLine" id="cb37-5" title="5"><span class="kw">system.time</span>(</a>
+<a class="sourceLine" id="cb37-6" title="6">  </a>
+<a class="sourceLine" id="cb37-7" title="7">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
+<a class="sourceLine" id="cb37-8" title="8">    </a>
+<a class="sourceLine" id="cb37-9" title="9">    output_vector &lt;-<span class="st"> </span><span class="kw">c</span>(output_vector,</a>
+<a class="sourceLine" id="cb37-10" title="10">                       <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb37-11" title="11">    </a>
+<a class="sourceLine" id="cb37-12" title="12">  }</a>
+<a class="sourceLine" id="cb37-13" title="13">)</a>
+<a class="sourceLine" id="cb37-14" title="14"></a>
+<a class="sourceLine" id="cb37-15" title="15"><span class="co">### Bottle Method</span></a>
+<a class="sourceLine" id="cb37-16" title="16"></a>
+<a class="sourceLine" id="cb37-17" title="17">output_vector &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> <span class="dv">10000</span>)</a>
+<a class="sourceLine" id="cb37-18" title="18"></a>
+<a class="sourceLine" id="cb37-19" title="19"><span class="kw">system.time</span>(</a>
+<a class="sourceLine" id="cb37-20" title="20">  </a>
+<a class="sourceLine" id="cb37-21" title="21">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
+<a class="sourceLine" id="cb37-22" title="22">    </a>
+<a class="sourceLine" id="cb37-23" title="23">    output_vector[i] &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb37-24" title="24">    </a>
+<a class="sourceLine" id="cb37-25" title="25">  }</a>
+<a class="sourceLine" id="cb37-26" title="26">)</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="co">### CHALLENGE 7 </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb38-3" title="3"><span class="co">###################</span></a>
+<a class="sourceLine" id="cb38-4" title="4"></a>
+<a class="sourceLine" id="cb38-5" title="5">population &lt;-<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb38-6" title="6"></a>
+<a class="sourceLine" id="cb38-7" title="7"><span class="cf">while</span>(population <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb38-8" title="8">  </a>
+<a class="sourceLine" id="cb38-9" title="9">  population &lt;-<span class="st"> </span>population <span class="op">-</span><span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb38-10" title="10">  </a>
+<a class="sourceLine" id="cb38-11" title="11">  <span class="kw">print</span>(population)</a>
+<a class="sourceLine" id="cb38-12" title="12">}</a></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conditionals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"search": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
