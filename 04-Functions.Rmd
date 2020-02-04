@@ -45,11 +45,9 @@ mySum <- function(a, b){
 
 Functions can be as simple or complex as required.
 
-### Challenge 1: Write a function
-
 Converting temperature values between different units of measure is possible with the use of formulas. Rather than having to apply the formula each time we want to make the conversion, defining it as a function would make things much easier.
 
-Let's open a new R script file and call it `functions_lesson.R`. Now we can define a function for converting temperatures in fahrenheit to kelvin:
+Now we can define a function for converting temperatures in fahrenheit to kelvin:
 
 ```{r eval = TRUE}
 fahr_to_kelvin <- function(temp){
@@ -69,7 +67,7 @@ fahr_to_kelvin(32)
 
 ```{}
 ###################
-### CHALLENGE 1 ###
+### CHALLENGE 8 ###
 ###################
 
 Write your own function to convert temperatures from kelvin to celsius.
@@ -77,7 +75,7 @@ Write your own function to convert temperatures from kelvin to celsius.
 Hint: to convert from kelvin to celsius subtract 273.15
 ```
 
-## Combining functions
+## Nesting functions
 
 The real power of functions comes from the ability to mix, match, and combine them into ever larger chunks to get the effect we want. In fact, the vast majority of functions in `R` make use of nested functions. If we look at the `upper.tri()` function again, we can see that it uses a combination of `as.matrix()`, `row()`, and `col()`.
 
@@ -85,11 +83,9 @@ The real power of functions comes from the ability to mix, match, and combine th
 upper.tri
 ```
 
-### Challenge 2: Write a nested function
-
 ```{}
 ###################
-### CHALLENGE 2 ###
+### CHALLENGE 9 ###
 ###################
 
 Using the two functions we've defined to convert fahrenheit to kelvin, and kelvin to celsius, define a function that converts fahrenheit to celsius.
@@ -143,9 +139,9 @@ calcAgeAverage(titanic)
 ```
 
 ```{}
-###################
-### CHALLENGE 3 ###
-###################
+####################
+### CHALLENGE 10 ###
+####################
 
 Define the function to calculate the average age for specific classes of a single sex. Hint: Look up the function %in%, which will allow you to subset by multiple classes.
 
@@ -153,9 +149,11 @@ Define the function to calculate the average age for specific classes of a singl
 
 ## Challenge Answers
 
-### Challenge 1
-
 ```{r eval = TRUE}
+###################
+### CHALLENGE 8 ###
+###################
+
 kelvin_to_celsius <- function(temp){
   
   celsius <- temp - 273.15
@@ -165,9 +163,11 @@ kelvin_to_celsius <- function(temp){
 }
 ```
 
-### Challenge 2
-
 ```{r eval = TRUE}
+###################
+### CHALLENGE 9 ###
+###################
+
 fahr_to_celsius <- function(temp){
   
   kelvin <- fahr_to_kelvin(temp)
@@ -179,9 +179,11 @@ fahr_to_celsius <- function(temp){
 }
 ```
 
-### Challenge 3
-
 ```{r eval=TRUE}
+####################
+### CHALLENGE 10 ###
+####################
+
 calcAgeAverage <- function(dat, 
                            sex, 
                            class){
